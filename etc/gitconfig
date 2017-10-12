@@ -1,0 +1,73 @@
+[user]
+  email = tisba@users.noreply.github.com
+  name = Sebastian Cohnen
+  useconfigonly = true
+[core]
+  excludesfile = /Users/basti/.gitignore
+  editor = /usr/bin/vim
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = 1
+  compactionHeuristic = 1
+[diff]
+  rename = copy
+  color = auto
+  mnemonicprefix = true
+[log]
+  date = local
+  graph = true
+[apply]
+  whitespace = strip
+[pager]
+  color = true
+[status]
+  color = auto
+[merge]
+  tool = chdiff
+  summary = true
+[push]
+  default = upstream
+[alias]
+  co = "checkout"
+  st = "status -sb"
+
+  unmerge = "reset --hard ORIG_HEAD"
+
+  ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+  # Branches
+  lsbr = "branch -a"
+  mkbr = "branch"
+  rmbr = "branch -d"
+  mvbr = "branch -m"
+
+  # Tags
+  lstag = "tag -l"
+  mktag = "tag -a"
+  rmtag = "tag -d"
+  mvtag = "tag -m"
+[github]
+  user = tisba
+[tig]
+  line-graphics = utf-8
+  tab-size = 4
+[tig "bind"]
+  status = @ !git checkout %(file)
+  generic = + !git commit --amend
+  refs = "3" !git rebase -i master
+  diff = Up move-up
+  diff = Down move-down
+  status = P !git push origin
+  stash = D !?git stash drop %(stash)
+[rebase]
+  stat = true
+[branch]
+  # https://git-scm.com/docs/git-config.html
+  autosetupmerge = true
+  autosetuprebase = local
+[filter "media"]
+  required = true
+  clean = git media clean %f
+  smudge = git media smudge %f

@@ -1,0 +1,8 @@
+.DS_Store
+.rake_tasks
+.cap_tasks
+._*
+.svn
+.hg
+.tmproj
+.rvmrc

@@ -1,0 +1,5 @@
+# ignore OMZ
+oh-my-zsh
+
+# ignore secrets
+secrets
