@@ -4,6 +4,8 @@ if [ -z "$PS1" ]; then
   echo -e "${COLOR_RED}You should source this, not run it, for example: source link${COLOR_NC}\n\n"
 fi
 
+ln -nfs $DOTFILES/etc/zshrc ~/.zshrc
+
 # aws
 ln -nfs $DOTFILES/secrets/aws_credentials ~/.aws/credentials
 
