@@ -10,7 +10,7 @@ export ZSH=$DOTFILES/oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="agnoster"
+ZSH_THEME="fishy"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -84,4 +84,11 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin/":$PATH
+
+# zsh options
+
+# disable shared history
+unsetopt share_history
+
+# added by travis gem
+[ -f /Users/basti/.travis/travis.sh ] && source /Users/basti/.travis/travis.sh
