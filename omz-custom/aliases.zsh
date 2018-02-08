@@ -1,6 +1,6 @@
 # edit configurations
-alias zshconfig="subl ~/.dotfiles"
-alias sshconfig="subl ~/.ssh/config"
+alias zshconfig="$EDITOR ~/.dotfiles"
+alias sshconfig="$EDITOR ~/.ssh/config"
 
 # basics
 alias grep="grep --color=auto"
@@ -8,12 +8,6 @@ alias ll="ls -lsahF"
 alias l="ll"
 alias l.="ls -d .[^.]*"
 alias ll.="ls -la -d .[^.]*"
-
-# development / workspaces
-export SRC_WORK_PATH="~/Documents/work/freelancing"
-alias sf="${SRC_WORK_PATH}/stormforger"
-alias sfsl="subl --project ${SRC_WORK_PATH}/stormforger/src/sf-core.sublime-project"
-alias work="cd ${SRC_WORK_PATH}"
 
 # ruby tools
 alias be="bundle exec"
