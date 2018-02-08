@@ -1,26 +1,21 @@
-# load libraries
-require 'rubygems'
-require 'utility_belt' if RUBY_VERSION =~ /^1\.8/
-require 'pp'
-require 'irb/completion'
+require "pp"
+require "irb/completion"
 
-# interactive editor: use vim from within irb
+# interactive editor: use vim/subl/etc from within irb
 begin
-  require 'interactive_editor'
-rescue LoadError => err
-  # warn "Couldn't load interactive_editor: #{err}"
+  require "interactive_editor"
+rescue LoadError
 end
 
 # awesome print
 begin
-  require 'awesome_print'
-  AwesomePrint.irb! if AwesomePrint.respond_to? :irb!
-rescue LoadError => err
-  warn "Couldn't load awesome_print: #{err}"
+  require "awesome_print"
+  AwesomePrint.irb! if AwesomePrint.respond_to?(:irb!)
+rescue LoadError
 end
 
 IRB.conf[:SAVE_HISTORY] = 100
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
+IRB.conf[:HISTORY_FILE] = "#{ENV["HOME"]}/.irb-save-history"
 
 # Simple regular expression helper
 # show_regexp - stolen from the pickaxe
