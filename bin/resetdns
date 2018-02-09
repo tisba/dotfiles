@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Clearing configured DNS Servers"
+
+sudo networksetup -setdnsservers Wi-Fi empty
+sudo networksetup -setdnsservers "Thunderbolt Ethernet" empty
+
+echo "Active DNS Servers"
+
+sudo networksetup -getdnsservers Wi-Fi
+sudo networksetup -getdnsservers "Thunderbolt Ethernet"
