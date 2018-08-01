@@ -1,3 +1,6 @@
+# remove "rails generate" alias
+unalias rg
+
 # edit configurations
 alias zshconfig="$EDITOR ~/.dotfiles"
 alias sshconfig="$EDITOR ~/.ssh/config"
