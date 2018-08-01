@@ -63,6 +63,11 @@ ZSH_CUSTOM=$DOTFILES/omz-custom
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(rails ruby gem capistrano git git-extras tig aws httpie vagrant)
 
+fpath=(
+  $DOTFILES/etc/fpath
+  $fpath
+)
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

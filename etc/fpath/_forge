@@ -1,0 +1,40 @@
+#compdef forge
+
+_arguments \
+  '1: :->level1' \
+  '2: :->level2' \
+  '3: :_files'
+case $state in
+  level1)
+    case $words[1] in
+      forge)
+        _arguments '1: :(completion datasource har help login organisation ping test-case test-run version)'
+      ;;
+      *)
+        _arguments '*: :_files'
+      ;;
+    esac
+  ;;
+  level2)
+    case $words[2] in
+      datasource)
+        _arguments '2: :(get ls mv push rm show)'
+      ;;
+      organisation)
+        _arguments '2: :(list)'
+      ;;
+      test-case)
+        _arguments '2: :(create launch list update validate)'
+      ;;
+      test-run)
+        _arguments '2: :(abort list logs show watch)'
+      ;;
+      *)
+        _arguments '*: :_files'
+      ;;
+    esac
+  ;;
+  *)
+    _arguments '*: :_files'
+  ;;
+esac
