@@ -18,3 +18,4 @@ alias be="bundle exec"
 # utils
 alias rhttp="ruby -run -e httpd . -p 9090"
 alias curl_timing="curl -w \"\n\n%{http_code} -> TOTAL: %{time_total}, DNS Lookup: %{time_namelookup}, Connect: %{time_connect}, Start Transfer: %{time_starttransfer}\n\n\""
+alias cdpwd="cd \$(realpath \$(pwd))"
