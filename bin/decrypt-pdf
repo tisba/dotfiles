@@ -1,0 +1,121 @@
+#!/bin/bash
+
+# NOTE
+#
+# Please check me after any changes with shellcheck (brew install shellcheck)!
+
+set -e
+
+# COLORS!
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+WHITE='\033[1;37m'
+NC='\033[0m'
+
+function usage() {
+  echo
+  echo -e "USAGE: $0 password <input.pdf> [<output.pdf>]"
+  echo
+  echo -e "  Unless <output.pdf> is provided, output is defaulted"
+  echo -e "  to input-decrypted.pdf."
+  echo
+}
+
+function printError() {
+  echo -e "[${RED}ERROR${NC}] $1"
+}
+
+function printInfo() {
+  echo -e "[${GREEN}INFO${NC}] $1"
+}
+
+function checkPreconditions() {
+  local input=$1
+  local target=$2
+
+  [[ -f $input ]] || {
+    printError "$input not found!"
+    exit 1
+  }
+
+  [[ $input == *.pdf ]] || {
+    printError "Only works with PDFs!"
+    usage
+    exit 1
+  }
+
+  [[ ! -f "$target" ]] || {
+    printError "$target already exists, will not overwrite!"
+    usage
+    exit 1
+  }
+
+  command -v qpdf > /dev/null || {
+    printError "qpdf not found. Please install e.g. via ${WHITE}brew install qpdf${NC}"
+    exit 1
+  }
+
+  [ ! -z "$STORMFORGER_PDF_PASSWORD" ] || {
+    printError "STORMFORGER_PDF_PASSWORD not set!"
+    exit 1
+  }
+}
+
+function checkEncryption() {
+  local input=$1
+
+  # This is a bit weired but I'm not sure how to make this better
+  # We have to capture STDERR and STDOUT or otherwise we will print
+  # noise. I found no other way then to assign the output to a local
+  # variable o_O
+  local _
+  if _=$({ qpdf "$input" --show-encryption 2>&1; })
+  then
+    printError "PDF not encrypted!?"
+    echo
+    echo -e "     ${WHITE}¯\\_(ツ)_/¯${NC}"
+    echo
+    exit 1
+  else
+    printInfo "Okay, PDF seems to be encrypted"
+  fi
+}
+
+function decrypt() {
+  local password=$1
+  local input=$2
+  local target=$3
+
+  printInfo "Decrypting PDF to ${WHITE}${target}${NC} ..."
+  qpdf --decrypt --password="$password" "$input" "$target"
+}
+
+# setup
+password=$1
+input=$2
+target=$3
+
+# Check Required Inputs
+[[ -z "$target" ]] && {
+  target=${input%.pdf}
+  target="${target##*/}-decrypted.pdf"
+}
+
+[[ -z "$password" ]] && {
+  printError "missing password"
+  usage
+  exit 1
+}
+
+[[ -z "$input" ]] && {
+  printError "missing input PDF"
+  usage
+  exit 1
+}
+
+# GO!
+checkPreconditions "$input" "$target"
+checkEncryption "$input"
+decrypt "$password" "$input" "$target" && {
+  printInfo "PDF decrypted! \\o/"
+}
