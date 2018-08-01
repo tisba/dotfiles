@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# https://www.defaults-write.com/speed-up-time-machine-backups/
+
+set -e
+
+if ! sudo -n true 2>/dev/null; then
+  echo
+  echo "Might ask for sudo password to set debug.lowpri_throttle_enabled=0..."
+  echo
+fi
+
+sudo sysctl debug.lowpri_throttle_enabled=0
+
+echo
+echo "  Done!"
+echo
