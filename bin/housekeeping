@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+
+echo "=== Homebrew Cleanup"
+brew cleanup -s && rm -rf $(brew --cache)
+
+echo "=== RVM Cleanup"
+rvm cleanup all
