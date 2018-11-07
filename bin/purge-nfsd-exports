@@ -8,7 +8,7 @@ if ! sudo -n true 2>/dev/null; then
   echo
 fi
 
-(echo -n "" | sudo tee /etc/exports) && sudo nfsd restart
+sudo cp /dev/null /etc/exports && sudo nfsd restart
 
 echo
 echo "  /etc/exports has been emptyed and nfsd restarted."
