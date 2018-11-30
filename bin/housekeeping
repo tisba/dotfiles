@@ -2,6 +2,10 @@
 
 set -e
 
+echo "=== Homebrew Updates"
+brew upgrade
+brew cask upgrade
+
 echo "=== Homebrew Cleanup"
 brew cleanup -s && rm -rf $(brew --cache)/*
 
