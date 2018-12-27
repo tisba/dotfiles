@@ -16,6 +16,3 @@ brew doctor
 echo "=== RVM Cleanup"
 rvm get head
 rvm cleanup all
-
-echo "=== update tldr"
-tldr --update
