@@ -55,7 +55,7 @@ function checkPreconditions() {
     exit 1
   }
 
-  [ ! -z "$STORMFORGER_PDF_PASSWORD" ] || {
+  [ -n "$STORMFORGER_PDF_PASSWORD" ] || {
     printError "STORMFORGER_PDF_PASSWORD not set!"
     exit 1
   }
