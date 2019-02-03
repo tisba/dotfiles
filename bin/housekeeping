@@ -8,11 +8,13 @@ brew cask upgrade
 
 echo "=== Homebrew Cleanup"
 brew_cache=$(brew --cache)
-brew cleanup -s && rm -rf "${brew_cache:?}"/*
+# -s is for scubbing the cache
+brew cleanup -s --verbose && rm -rf "${brew_cache:?}"/*
 
-echo "=== brew doctor"
+echo "=== brew {,cask} doctor"
 brew doctor
+brew cask doctor
 
 echo "=== RVM Cleanup"
-rvm get head
+rvm get stable
 rvm cleanup all
