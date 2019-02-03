@@ -1,0 +1,51 @@
+# === My Own Stuff
+brew "tisba/taps/fritz-tls"
+brew "stormforger/forge/forge"
+
+# === Development
+brew "go"
+brew "golangci/tap/golangci-lint"
+brew "goreleaser/tap/goreleaser"
+
+brew "node"
+
+brew "awscli"
+brew "coreutils"
+brew "exercism"
+brew "git"
+brew "htop"
+brew "iperf3"
+brew "jq"
+brew "nmap"
+brew "packer"
+brew "protobuf"
+brew "shellcheck"
+brew "syntaqx/tap/serve"
+brew "wagoodman/dive/dive"
+brew "zsh-completions"
+cask "vagrant"
+cask "virtualbox"
+cask "visual-studio-code"
+
+# === Basics
+brew "certbot"
+brew "pngcrush"
+brew "pngquant"
+brew "qpdf"
+brew "youtube-dl"
+cask "1password-cli"
+cask "aerial"
+cask "betterzip"
+cask "logitech-options"
+cask "tor-browser"
+cask "ubiquiti-unifi-controller"
+
+# === Quicklook Tools
+cask "qlcolorcode"
+cask "qlimagesize"
+cask "qlmarkdown"
+cask "qlstephen"
+cask "qlvideo"
+cask "quicklook-json"
+cask "quicklookase"
+cask "webpquicklook"
