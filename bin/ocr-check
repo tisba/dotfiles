@@ -1,0 +1,42 @@
+#!/bin/bash
+
+# NOTE
+#
+# Please check me after any changes with shellcheck (brew install shellcheck)!
+
+set -e
+
+# COLORS!
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+WHITE='\033[1;37m'
+NC='\033[0m'
+
+function printError() {
+  echo -e "[${RED}ERROR${NC}] $1"
+}
+
+function printInfo() {
+  echo -e "[${GREEN}INFO${NC}] $1"
+}
+
+command -v pdffonts > /dev/null || {
+  printError "pdffonts not found. Please install e.g. via ${WHITE}brew install qpdf${NC}"
+  exit 1
+}
+
+function checkPDF() {
+  local errCheck
+
+  errCheck=$(pdffonts "$1" 2>&1 | tail -1)
+
+  if [[ $errCheck =~ ^- ]]; then
+    echo -e "${RED}╳${WHITE} not OCRed? $1"
+    exit 1
+  else
+    echo -e "${GREEN}✓${WHITE} looks OCRed! $1"
+    exit 0
+  fi
+}
+
+checkPDF "$1"
