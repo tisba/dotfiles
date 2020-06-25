@@ -19,3 +19,8 @@ echo "Active DNS Servers"
 sudo networksetup -getdnsservers Wi-Fi
 sudo networksetup -getdnsservers "Thunderbolt Ethernet"
 sudo networksetup -getdnsservers "USB 10/100/1000 LAN"
+
+echo "Flushing DNS Caches"
+
+dscacheutil -flushcache
+sudo killall -HUP mDNSResponder
