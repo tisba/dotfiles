@@ -1,0 +1,93 @@
+#!/bin/bash
+
+echo "==================================================================="
+echo "  Currently this is just a reference and not meant to be applied   "
+echo "  automatically!                                                   "
+echo "==================================================================="
+exit 0
+
+
+echo "ANIMATIONS"
+echo
+
+echo "Reduce Window Resize Time"
+defaults write NSGlobalDomain NSWindowResizeTime .001
+
+echo "Reduce Finder Animations"
+defaults write com.apple.finder DisableAllAnimations -bool true
+
+echo "Reduce Dock Animations"
+defaults write com.apple.Dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -int 0
+
+echo "System: Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+echo "System: Expand save and print panel by default"
+defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
+defaults write -g PMPrintingExpandedStateForPrint -bool true
+
+echo "System: Automatically open a new Finder window when a volume is mounted"
+defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
+defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
+
+echo "System: Avoid creating .DS_Store files on network volumes"
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+echo "System: Disable Resume system-wide"
+defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool false
+
+echo "System: Require password immediately after sleep or screen saver begins"
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
+echo "System: Un-hide ~/Library"
+chflags nohidden ~/Library
+
+echo "Dock: Enable highlight hover effect for the grid view of a stack"
+defaults write com.apple.dock mouse-over-hilte-stack -bool true
+
+echo "Dock: Remove delay for dock interactions"
+defaults delete com.apple.Dock autohide-delay
+
+echo "Menu Bar: Disable menu bar transparency"
+# defaults write -g AppleEnableMenuBarTransparency -bool false
+
+echo "Safari: Enable Safari’s debug menu"
+defaults write com.apple.Safari IncludeDebugMenu -bool true
+defaults write com.apple.addressbook ABShowDebugMenu -bool true
+defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
+defaults write com.apple.DiskUtility advanced-image-options -bool true
+
+
+echo "Mail: Disable send and reply animations in Mail.app"
+defaults write com.apple.Mail DisableReplyAnimations -bool true
+defaults write com.apple.Mail DisableSendAnimations -bool true
+
+echo "Finder: Display full POSIX path as Finder window title"
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+echo "Finder: Disable the warning when changing a file extension"
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+echo "iTunes: Disable Ping"
+defaults write com.apple.iTunes disablePingSidebar -bool true
+defaults write com.apple.iTunes disablePing -bool true
+
+echo "iTunes: Enable search field on CMD+F"
+defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
+
+echo "Quick Look: Allow text selection"
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
+echo "AirDrop: Enable on all interfaces"
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
+
+echo "Login: Set Message"
+defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Sebastian Cohnen, @tisba, mail@tisba.de, +49 176 / 22 82 30 58"
+sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText 'Sebastian Cohnen - @tisba\n✉ mail@tisba.de - ☎ +49 176 / 22 82 30 58'
+
+echo
+echo "Done!"
+echo "Killing Safari, Finder, Dock and Mail'"
+for app in Finder Dock Mail; do killall "$app"; done
