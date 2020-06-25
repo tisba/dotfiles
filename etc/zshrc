@@ -50,7 +50,7 @@ COMPLETION_WAITING_DOTS="true"
 # Uncomment the following line if you want to change the command execution time
 # stamp shown in the history command output.
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -66,7 +66,7 @@ ZSH_CUSTOM=$DOTFILES/omz-custom
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(rails ruby gem capistrano git git-extras tig aws httpie vagrant)
+plugins=(zsh-syntax-highlighting zsh-autosuggestions git-open ruby gem capistrano git git-extras tig aws httpie vagrant docker docker-compose)
 
 fpath=(
   $DOTFILES/etc/fpath
@@ -102,3 +102,5 @@ unsetopt share_history
 
 # added by travis gem
 [ -f /Users/basti/.travis/travis.sh ] && source /Users/basti/.travis/travis.sh
+
+source /Users/basti/Library/Preferences/org.dystroy.broot/launcher/bash/br
