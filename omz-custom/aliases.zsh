@@ -1,6 +1,3 @@
-# remove "rails generate" alias
-unalias rg
-
 # remove "git status -s" alias
 unalias gss
 

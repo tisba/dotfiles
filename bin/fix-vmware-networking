@@ -12,8 +12,8 @@ fi
 
 # drop networking configuration
 # NOTE: not sure if this is required, but it might help
-#sudo rm -rf "/Library/Preferences/VMware Fusion/networking"
-#sudo rm -rf "/Library/Preferences/VMware Fusion/locations"
+sudo rm -rf "/Library/Preferences/VMware Fusion/networking"
+sudo rm -rf "/Library/Preferences/VMware Fusion/locations"
 
 # restart some VMware services
 sudo /Applications/VMware\ Fusion.app/Contents/Library/services/services.sh --stop
@@ -24,10 +24,3 @@ cd "/Applications/VMware Fusion.app/Contents/Library/"
 sudo ./vmnet-cli --configure
 sudo ./vmnet-cli --stop
 sudo ./vmnet-cli --start
-
-# NOTE: This can also help if there is a problem with NATing
-#       This should have been fixed with Vagrant 2+, but maybe
-#       this still comes up...
-#
-# remove list under [incomingtcp] in:
-#   /Library/Preferences/VMware\ Fusion/vmnet8/nat.conf
