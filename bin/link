@@ -20,9 +20,6 @@ ln -nfs "$DOTFILES/etc/rspec" ~/.rspec
 ln -nfs "$DOTFILES/etc/rdebugrc" ~/.rdebugrc
 ln -nfs "$DOTFILES/etc/gemrc" ~/.gemrc
 
-# JSlint
-ln -nfs "$DOTFILES/etc/jsl".conf ~/.jsl.conf
-
 # vim
 ln -nfs "$DOTFILES/etc/vimrc" ~/.vimrc
 ln -nfs "$DOTFILES/etc/gvimrc" ~/.gvimrc
@@ -30,7 +27,6 @@ ln -nfs "$DOTFILES/etc/vim" ~/.vim
 
 # git
 ln -nfs "$DOTFILES/etc/gitconfig" ~/.gitconfig
-ln -nfs "$DOTFILES/etc/gitignore" ~/.gitignore
 
 # misc
 touch ~/.hushlogin
