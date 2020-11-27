@@ -3,8 +3,9 @@
   name = Sebastian Cohnen
   useconfigonly = true
 [core]
-  excludesfile = /Users/basti/.gitignore
+  excludesfile = /Users/basti/.dotfiles/etc/gitignore
   editor = /usr/bin/vim
+  attributesfile = /Users/basti/.dotfiles/etc/gitattributes
 [color]
   diff = auto
   status = auto
