@@ -39,18 +39,6 @@
   unmerge = "reset --hard ORIG_HEAD"
 
   ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-
-  # Branches
-  lsbr = "branch -a"
-  mkbr = "branch"
-  rmbr = "branch -d"
-  mvbr = "branch -m"
-
-  # Tags
-  lstag = "tag -l"
-  mktag = "tag -a"
-  rmtag = "tag -d"
-  mvtag = "tag -m"
 [github]
   user = tisba
 [tig]
