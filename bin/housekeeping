@@ -4,7 +4,7 @@ set -e
 
 echo "=== Homebrew Updates"
 brew upgrade
-brew cask upgrade
+brew upgrade --cask
 
 echo "=== Homebrew Cleanup"
 brew_cache=$(brew --cache)
