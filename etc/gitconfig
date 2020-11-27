@@ -15,6 +15,8 @@
   rename = copy
   color = auto
   mnemonicprefix = true
+[diff "rspec"]
+  xfuncname = "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario)[ \t].*)$"
 [log]
   date = local
   graph = true

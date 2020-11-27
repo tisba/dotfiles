@@ -1,0 +1,6 @@
+*.rb diff=ruby
+*.rake diff=ruby
+*.gemspec diff=ruby
+Gemfile diff=ruby
+Capfile diff=ruby
+*_spec.rb diff=rspec
