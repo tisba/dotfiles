@@ -33,11 +33,7 @@
 [push]
   default = upstream
 [alias]
-  co = "checkout"
   st = "status -sb"
-
-  unmerge = "reset --hard ORIG_HEAD"
-
   ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [github]
   user = tisba
