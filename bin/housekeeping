@@ -26,4 +26,4 @@ echo "=== yarn cache cleanup"
 yarn cache clean
 
 echo "=== Updating OMZ"
-upgrade_oh_my_zsh
+omz update
