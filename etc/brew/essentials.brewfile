@@ -4,16 +4,14 @@ brew "stormforger/forge/forge"
 
 # === Development
 brew "go"
-brew "golangci/tap/golangci-lint"
-brew "goreleaser/tap/goreleaser"
-
 brew "node"
 
 brew "awscli"
 brew "coreutils"
-brew "exercism"
-brew "git"
 brew "gh"
+brew "git"
+brew "goreleaser/tap/goreleaser"
+brew "gpg"
 brew "htop"
 brew "iperf3"
 brew "jq"
@@ -22,9 +20,9 @@ brew "packer"
 brew "protobuf"
 brew "shellcheck"
 brew "syntaqx/tap/serve"
+brew "tig"
 brew "wagoodman/dive/dive"
 cask "vagrant"
-cask "virtualbox"
 cask "visual-studio-code"
 
 # === Basics
