@@ -11,9 +11,8 @@ brew_cache=$(brew --cache)
 # -s is for scrubbing the cache
 brew cleanup -s --verbose && rm -rf "${brew_cache:?}"/*
 
-echo "=== brew {,cask} doctor"
+echo "=== brew doctor"
 brew doctor
-brew cask doctor
 
 echo "=== RVM cleanup"
 rvm get head
@@ -22,8 +21,5 @@ rvm cleanup all
 echo "=== Golang cache cleanup"
 go clean --modcache --cache
 
-echo "=== yarn cache cleanup"
-yarn cache clean
-
 echo "=== Updating OMZ"
-omz update
+$ZSH/tools/upgrade.sh
