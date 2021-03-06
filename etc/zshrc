@@ -72,7 +72,18 @@ ZSH_CUSTOM=$DOTFILES/omz-custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(zsh-syntax-highlighting zsh-autosuggestions ruby gem capistrano git git-extras tig aws httpie vagrant docker docker-compose)
+plugins=(
+  aws
+  docker
+  gem
+  git
+  git-extras
+  ruby
+  tig
+  vagrant
+  zsh-autosuggestions
+  zsh-syntax-highlighting
+)
 
 source $ZSH/oh-my-zsh.sh
 
