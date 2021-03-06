@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-[[ ! -z $DOTFILES ]] || {
+[[ -n $DOTFILES ]] || {
     echo "\$DOTFILES is not set?"
     exit 1
 }
