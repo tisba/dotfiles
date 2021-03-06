@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+[[ ! -z $DOTFILES ]] || {
+    echo "\$DOTFILES is not set?"
+    exit 1
+}
+
 ln -nfs "$DOTFILES/etc/zshrc" ~/.zshrc
 
 # aws
