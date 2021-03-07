@@ -14,7 +14,7 @@ These are my personal dotfiles.
 
 * run `git clone git@github.com:tisba/dotfiles.git ~/.dotfiles`
 * copy secrets to `~/.dotfiles/secrets`
-* run `~/.dotfiles/bin/bootstrap`
+* run `DOTFILES=$HOME/.dotfiles ~/.dotfiles/bin/bootstrap`
 * run `~/.dotfiles/bin/install-essentials`
 
 ### Maintenance

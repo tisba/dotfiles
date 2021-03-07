@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+set -e
+
+[[ -n $DOTFILES ]] || {
+    echo "[EROR] \$DOTFILES is not set"
+    exit 1
+}
+
+# FIXME make dotfiles this an argument and check it's set
+export DOTFILES=/Users/basti/.dotfiles
+
+# setting $ZSH makes the omz installer use it for the installation path
+export ZSH=$DOTFILES/oh-my-zsh
+
+xcode-select --install
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+/bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+curl -sSL https://get.rvm.io | bash -s stable
+
+mkdir -p ~/.aws/
+
+# misc
+touch ~/.hushlogin
+
+$DOTFILES/bin/link
+
+# install ZSH plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
