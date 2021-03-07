@@ -7,9 +7,6 @@ set -e
     exit 1
 }
 
-# FIXME make dotfiles this an argument and check it's set
-export DOTFILES=/Users/basti/.dotfiles
-
 # setting $ZSH makes the omz installer use it for the installation path
 export ZSH=$DOTFILES/oh-my-zsh
 
