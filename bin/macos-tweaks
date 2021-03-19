@@ -6,22 +6,28 @@ echo "  automatically!                                                   "
 echo "==================================================================="
 exit 0
 
+echo "Settings"
 
-echo "ANIMATIONS"
-echo
+echo "SOUND: Enable feedback when volume is changed"
+defaults write -g com.apple.sound.beep.feedback -int 1
 
-echo "Reduce Window Resize Time"
+echo "ANIMATION: Reduce Window Resize Time"
 defaults write NSGlobalDomain NSWindowResizeTime .001
 
-echo "Reduce Finder Animations"
+echo "ANIMATION: Reduce Finder Animations"
 defaults write com.apple.finder DisableAllAnimations -bool true
 
-echo "Reduce Dock Animations"
+echo "ANIMATION: Reduce Dock Animations"
 defaults write com.apple.Dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -int 0
 
-echo "System: Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
+echo "INPUT: Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+echo "INPUT: Faster typing..."
+defaults write -g InitialKeyRepeat -int 8
+defaults write -g KeyRepeat -int 1
+echo "INPUT: Disable 'Character Picker' (holding a key) [requires reboot]"
+defaults write -g ApplePressAndHoldEnabled -bool false
 
 echo "System: Expand save and print panel by default"
 defaults write -g NSNavPanelExpandedStateForSaveMode -bool true
@@ -41,28 +47,21 @@ echo "System: Require password immediately after sleep or screen saver begins"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-echo "System: Un-hide ~/Library"
-chflags nohidden ~/Library
-
-echo "Dock: Enable highlight hover effect for the grid view of a stack"
-defaults write com.apple.dock mouse-over-hilte-stack -bool true
-
-echo "Dock: Remove delay for dock interactions"
-defaults delete com.apple.Dock autohide-delay
+# echo "System: Un-hide ~/Library"
+# chflags nohidden ~/Library
 
 echo "Menu Bar: Disable menu bar transparency"
 # defaults write -g AppleEnableMenuBarTransparency -bool false
 
-echo "Safari: Enable Safari’s debug menu"
+echo "Safari: Enable debug menus"
 defaults write com.apple.Safari IncludeDebugMenu -bool true
 defaults write com.apple.addressbook ABShowDebugMenu -bool true
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
 
-
-echo "Mail: Disable send and reply animations in Mail.app"
-defaults write com.apple.Mail DisableReplyAnimations -bool true
-defaults write com.apple.Mail DisableSendAnimations -bool true
+# echo "Mail: Disable send and reply animations in Mail.app"
+# defaults write com.apple.Mail DisableReplyAnimations -bool true
+# defaults write com.apple.Mail DisableSendAnimations -bool true
 
 echo "Finder: Display full POSIX path as Finder window title"
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
@@ -70,21 +69,15 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 echo "Finder: Disable the warning when changing a file extension"
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-echo "iTunes: Disable Ping"
-defaults write com.apple.iTunes disablePingSidebar -bool true
-defaults write com.apple.iTunes disablePing -bool true
-
-echo "iTunes: Enable search field on CMD+F"
-defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
-
 echo "Quick Look: Allow text selection"
+# TODO check after reboot if this really works
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
-echo "AirDrop: Enable on all interfaces"
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
+# echo "AirDrop: Enable on all interfaces"
+# defaults write com.apple.NetworkBrowser BrowseAllInterfaces 1
 
 echo "Login: Set Message"
-defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "Sebastian Cohnen, @tisba, mail@tisba.de, +49 176 / 22 82 30 58"
+# TODO check after reboot if this really works
 sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText 'Sebastian Cohnen - @tisba\n✉ mail@tisba.de - ☎ +49 176 / 22 82 30 58'
 
 echo
