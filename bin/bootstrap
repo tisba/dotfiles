@@ -8,7 +8,7 @@ set -e
 }
 
 # setting $ZSH makes the omz installer use it for the installation path
-export ZSH=$DOTFILES/oh-my-zsh
+export ZSH="$DOTFILES/oh-my-zsh"
 
 xcode-select --install
 
