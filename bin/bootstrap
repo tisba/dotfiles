@@ -23,7 +23,7 @@ mkdir -p ~/.aws/
 # misc
 touch ~/.hushlogin
 
-$DOTFILES/bin/link
+"$DOTFILES"/bin/link
 
 # install ZSH plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 [[ -n $DOTFILES ]] || {
     echo "[EROR] \$DOTFILES is not set"
     exit 1
