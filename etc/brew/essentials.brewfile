@@ -32,13 +32,11 @@ brew "pngquant"
 brew "qpdf"
 brew "serve"
 brew "youtube-dl"
-cask "1password-cli"
 cask "aerial"
 cask "homebrew/cask-drivers/logitech-firmwareupdatetool"
 cask "homebrew/cask-drivers/logitech-camera-settings"
 cask "tor-browser"
 cask "ubiquiti-unifi-controller"
-cask "refined-github-safari"
 
 # === Quicklook Tools
 cask "qlcolorcode"
