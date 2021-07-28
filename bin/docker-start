@@ -2,7 +2,7 @@
 
 set -e
 
-if ! $(docker info > /dev/null 2>&1); then
+if ! "$(docker info > /dev/null 2>&1)"; then
   echo "Opening Docker Desktop..."
   open -a /Applications/Docker.app
   while ! docker system info > /dev/null 2>&1; do sleep 1; done
