@@ -48,6 +48,7 @@
   diff = Down move-down
   status = P !git push origin
   stash = D !?git stash drop %(stash)
+  stash = P !git stash pop %(stash)
 [rebase]
   stat = true
 [branch]
