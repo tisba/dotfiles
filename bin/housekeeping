@@ -18,8 +18,5 @@ echo "=== RVM cleanup"
 rvm get head
 rvm cleanup all
 
-echo "=== Golang cache cleanup"
-go clean --modcache --cache
-
 echo "=== Updating OMZ"
 "$ZSH/tools/upgrade.sh"
