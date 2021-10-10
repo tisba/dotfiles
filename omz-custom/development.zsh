@@ -9,3 +9,6 @@ alias gosrc='cd $GOPATH/src/github.com/'
 
 # Networking
 whoseport() { lsof -i "TCP:$1" | grep LISTEN }
+
+# Setup myfly (CTRL+r search replacement)
+eval "$(mcfly init zsh)"
