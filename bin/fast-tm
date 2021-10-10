@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # https://www.defaults-write.com/speed-up-time-machine-backups/
 

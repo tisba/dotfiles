@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 echo "==================================================================="
 echo "  Currently this is just a reference and not meant to be applied   "
