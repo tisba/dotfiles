@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Custom Plugin update custom function
+printf "\n${BLUE}%s${RESET}\n" "Updating custom plugins and themes"
+cd "$ZSH_CUSTOM"
+for plugin in plugins/*/ themes/*/; do
+  if [ -d "$plugin/.git" ]; then
+     printf "${YELLOW}%s${RESET}\n" "${plugin%/}"
+     git -C "$plugin" pull
+  fi
+done
