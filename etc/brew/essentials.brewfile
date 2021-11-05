@@ -22,6 +22,7 @@ brew "shellcheck"
 brew "syntaqx/tap/serve"
 brew "tig"
 brew "wagoodman/dive/dive"
+brew "watch"
 cask "vagrant"
 cask "visual-studio-code"
 
