@@ -8,18 +8,6 @@ if ! sudo -n true 2>/dev/null; then
   echo
 fi
 
-echo "Clearing configured DNS Servers"
-
-sudo networksetup -setdnsservers Wi-Fi empty
-sudo networksetup -setdnsservers "Thunderbolt Ethernet" empty
-sudo networksetup -setdnsservers "USB 10/100/1000 LAN" empty
-
-echo "Active DNS Servers"
-
-sudo networksetup -getdnsservers Wi-Fi
-sudo networksetup -getdnsservers "Thunderbolt Ethernet"
-sudo networksetup -getdnsservers "USB 10/100/1000 LAN"
-
 echo "Flushing DNS Caches"
 
 dscacheutil -flushcache
