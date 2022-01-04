@@ -27,18 +27,18 @@ cask "vagrant"
 cask "visual-studio-code"
 
 # === Basics
-brew "certbot"
+brew "cantino/mcfly/mcfly"
+brew "fzf"
 brew "pngcrush"
 brew "pngquant"
 brew "qpdf"
 brew "serve"
 brew "youtube-dl"
-brew "cantino/mcfly/mcfly"
 cask "aerial"
-cask "homebrew/cask-drivers/logitech-firmwareupdatetool"
 cask "homebrew/cask-drivers/logitech-camera-settings"
+cask "homebrew/cask-drivers/logitech-firmwareupdatetool"
 cask "tor-browser"
-cask "ubiquiti-unifi-controller"
+
 
 # === Quicklook Tools
 cask "qlcolorcode"
