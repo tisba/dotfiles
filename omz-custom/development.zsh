@@ -1,11 +1,13 @@
-# Sublime
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin/":$PATH
+if [ -e "/Applications/Sublime Text.app" ]; then
+  export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin/":$PATH
+fi
+
+if [ -e "/Applications/Visual Studio Code.app" ]; then
+  export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
+fi
 
 # Erlang
 export ERL_AFLAGS="-kernel shell_history enabled"
-
-# Go
-alias gosrc='cd $GOPATH/src/github.com/'
 
 # Networking
 whoseport() { lsof -i "TCP:$1" | grep LISTEN }

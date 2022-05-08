@@ -1,5 +1,7 @@
 # === My Own Stuff
+tap "tisba/taps"
 brew "tisba/taps/fritz-tls"
+tap "stormforger/forge"
 brew "stormforger/forge/forge"
 
 # === Development
@@ -11,34 +13,33 @@ brew "coreutils"
 brew "dive"
 brew "gh"
 brew "git"
+tap "goreleaser/tap"
 brew "goreleaser/tap/goreleaser"
 brew "gpg"
 brew "htop"
-brew "iperf3"
 brew "jq"
+brew "yq"
 brew "nmap"
 brew "packer"
 brew "protobuf"
 brew "shellcheck"
+tap "syntaqx/tap"
 brew "syntaqx/tap/serve"
 brew "tig"
 brew "watch"
-cask "vagrant"
 cask "visual-studio-code"
 
 # === Basics
+tap "cantino/mcfly"
 brew "cantino/mcfly/mcfly"
 brew "fzf"
 brew "pngcrush"
 brew "pngquant"
 brew "qpdf"
-brew "serve"
 brew "youtube-dl"
 cask "aerial"
-cask "homebrew/cask-drivers/logitech-camera-settings"
-cask "homebrew/cask-drivers/logitech-firmwareupdatetool"
-cask "tor-browser"
-
+# cask "homebrew/cask-drivers/logitech-camera-settings"
+# cask "homebrew/cask-drivers/logitech-firmwareupdatetool"
 
 # === Quicklook Tools
 cask "qlcolorcode"
