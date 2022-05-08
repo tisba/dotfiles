@@ -4,7 +4,7 @@ set -e
 
 [[ -n $DOTFILES ]] || {
     printf "[ERROR] \$DOTFILES is not set!\n\n"
-    printf "Example: DOTFILES=\$HOME/.dotfiles $0\n\n"
+    printf "Example: DOTFILES=\$HOME/.dotfiles %s\n\n" "$0"
     exit 1
 }
 
