@@ -7,10 +7,18 @@ set -e
     exit 1
 }
 
+# checking for sudo…
+if ! sudo -n true 2>/dev/null; then
+  echo
+  echo "Might ask for sudo password later..."
+  echo
+fi
+
 # setting $ZSH makes the omz installer use it for the installation path
 export ZSH="$DOTFILES/oh-my-zsh"
 
-xcode-select --install
+echo "Installing Apple command line utilities…"
+xcode-select --install || echo "WARNING: Apple comand line utilities already installed? Trying to continue…"
 
 NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -28,5 +36,3 @@ touch ~/.hushlogin
 # install ZSH plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
-
-export PATH="/Users/basti/.rvm/gems/ruby-3.1.2/bin:/Users/basti/.rvm/gems/ruby-3.1.2@global/bin:/Users/basti/.rvm/rubies/ruby-3.1.2/bin:/Users/basti/Documents/src/golang/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin/:/Users/basti/.dotfiles/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/basti/.rvm/bin"
