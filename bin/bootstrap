@@ -3,25 +3,17 @@
 set -e
 
 [[ -n $DOTFILES ]] || {
-    echo "[EROR] \$DOTFILES is not set"
+    printf "[ERROR] \$DOTFILES is not set!\n\n"
+    printf "Example: DOTFILES=\$HOME/.dotfiles $0\n\n"
     exit 1
 }
 
-# checking for sudo…
-if ! sudo -n true 2>/dev/null; then
-  echo
-  echo "Might ask for sudo password later..."
-  echo
-fi
+xcode-select --install || echo "WARNING: Apple comand line tools already installed? Trying to continue…"
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 # setting $ZSH makes the omz installer use it for the installation path
 export ZSH="$DOTFILES/oh-my-zsh"
-
-echo "Installing Apple command line utilities…"
-xcode-select --install || echo "WARNING: Apple comand line utilities already installed? Trying to continue…"
-
-NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
 /bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 curl -sSL https://get.rvm.io | bash -s stable

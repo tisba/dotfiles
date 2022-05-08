@@ -12,8 +12,10 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 # Networking
 whoseport() { lsof -i "TCP:$1" | grep LISTEN }
 
-# Setup myfly (CTRL+r search replacement)
-eval "$(mcfly init zsh)"
+# Setup myfly if available (CTRL+r search replacement)
+command -v mcfly > /dev/null && {
+  eval "$(mcfly init zsh)"
+}
 
 gisw(){
   git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout

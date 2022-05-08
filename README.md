@@ -16,6 +16,7 @@ These are my personal dotfiles.
 * copy secrets to `~/.dotfiles/secrets`
 * run `DOTFILES=$HOME/.dotfiles ~/.dotfiles/bin/bootstrap`
 * run `~/.dotfiles/bin/install-essentials`
+* look at `~/.dotfiles/bin/macos-tweaks`
 
 ### Maintenance
 
