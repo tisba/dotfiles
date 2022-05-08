@@ -12,7 +12,7 @@ export ZSH="$DOTFILES/oh-my-zsh"
 
 xcode-select --install
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 /bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -28,3 +28,5 @@ touch ~/.hushlogin
 # install ZSH plugins
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
+
+export PATH="/Users/basti/.rvm/gems/ruby-3.1.2/bin:/Users/basti/.rvm/gems/ruby-3.1.2@global/bin:/Users/basti/.rvm/rubies/ruby-3.1.2/bin:/Users/basti/Documents/src/golang/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin/:/Users/basti/.dotfiles/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/Users/basti/.rvm/bin"
