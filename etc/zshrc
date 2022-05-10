@@ -102,6 +102,12 @@ else
   export EDITOR='subl -w'
 fi
 
+# Prefixing prompt with profile when $AWS_VAULT is set
+# TODO: How to move that into a better place? Like dev-related
+if [[ -n $AWS_VAULT ]]; then
+  export PROMPT="[k8s@${AWS_VAULT}] ${PROMPT}"
+fi
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
