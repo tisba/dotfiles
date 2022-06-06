@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+if (pmset -g | grep -E "lowpowermode +1" 1>/dev/null); then
+  exit 0
+fi
+
+if ! sudo -n true 2>/dev/null; then
+  echo
+  echo "Might ask for sudo password to set run pmset"
+  echo
+fi
+
+sudo pmset -a lowpowermode 1
+
+echo
+echo "  Done! 💡"
+echo
