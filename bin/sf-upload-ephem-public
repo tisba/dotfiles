@@ -44,14 +44,14 @@ input=$1
   exit 1
 }
 
-[[ -n "$STORMFORGE_UPLOAD_BUCKET" ]] && {
-  printError "STORMFORGE_UPLOAD_BUCKET"
+[[ -z "$STORMFORGE_UPLOAD_BUCKET" ]] && {
+  printError "STORMFORGE_UPLOAD_BUCKET is empty"
   usage
   exit 1
 }
 
-[[ -n "$STORMFORGE_UPLOAD_PREFIX" ]] && {
-  printError "STORMFORGE_UPLOAD_PREFIX"
+[[ -z "$STORMFORGE_UPLOAD_PREFIX" ]] && {
+  printError "STORMFORGE_UPLOAD_PREFIX is empty"
   usage
   exit 1
 }
