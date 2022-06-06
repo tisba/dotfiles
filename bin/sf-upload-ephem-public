@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+# NOTE
+#
+# Please check me after any changes with shellcheck (brew install shellcheck)!
+
+set -e
+
+# COLORS!
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+WHITE='\033[1;37m'
+NC='\033[0m'
+
+function usage() {
+  echo
+  echo -e "USAGE: $0 <file>"
+  echo
+}
+
+function printError() {
+  echo -e "[${RED}ERROR${NC}] $1"
+}
+
+function printInfo() {
+  echo -e "[${GREEN}INFO${NC}] $1"
+}
+
+function checkPreconditions() {
+  local input=$1
+
+  [[ -f $input ]] || {
+    printError "$input not found!"
+    exit 1
+  }
+}
+
+# setup
+input=$1
+
+[[ -z "$input" ]] && {
+  printError "missing file to upload"
+  usage
+  exit 1
+}
+
+[[ -n "$STORMFORGE_UPLOAD_BUCKET" ]] && {
+  printError "STORMFORGE_UPLOAD_BUCKET"
+  usage
+  exit 1
+}
+
+[[ -n "$STORMFORGE_UPLOAD_PREFIX" ]] && {
+  printError "STORMFORGE_UPLOAD_PREFIX"
+  usage
+  exit 1
+}
+
+bucket="$STORMFORGE_UPLOAD_BUCKET"
+prefix="$STORMFORGE_UPLOAD_PREFIX"
+key="${prefix}/$(basename "$input")"
+s3_full_uri="s3://${bucket}/${key}"
+
+# GO!
+checkPreconditions "$input"
+
+printInfo "Uploading $input to s3://$bucket/${prefix}/"
+aws s3 cp "$input" "s3://$bucket/${prefix}/"
+
+printInfo "Adjusting ACLs to allow public read access to ${s3_full_uri}"
+aws s3api put-object-acl --bucket "$bucket" --key "$key" --acl public-read
+
+printInfo
+printInfo "Done!"
+printInfo
+printInfo "⚠️  $input is now ${RED}PUBLIC${NC} under ${WHITE}https://$bucket.s3.eu-central-1.amazonaws.com/${key}${NC}"
