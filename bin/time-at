@@ -1,22 +1,8 @@
-#!/usr/bin/env ruby
+#!/usr/bin/env bash
 
 # This utility is helpful when have a unix timestamp (epoch) and you
 # want to convert it a human readable format (in UTC).
 
-if ARGV.empty? || ARGV.first == "--help"
-  require "pathname"
+set -e
 
-  exec_name = Pathname.new($PROGRAM_NAME).basename
-
-  STDERR.puts "Usage: #{exec_name} <timestamp>, example: #{exec_name} 1663841240.0349953"
-  exit 1
-end
-
-begin
-  input = Float(ARGV.first)
-rescue ArgumentError => e
-  STDERR.puts e.message
-  exit 1
-end
-
-puts Time.at(input).utc
+gdate --utc --rfc-3339=ns -d "@$1"
