@@ -1,65 +1,64 @@
+# https://git-scm.com/docs/git-config.html
+
 [user]
-  email = tisba@users.noreply.github.com
-  name = Sebastian Cohnen
-  useconfigonly = true
+email = tisba@users.noreply.github.com
+name = Sebastian Cohnen
+useconfigonly = true
 [core]
-  excludesfile = ~/.dotfiles/etc/gitignore
-  editor = /usr/bin/vim
-  attributesfile = ~/.dotfiles/etc/gitattributes
+excludesfile = ~/.dotfiles/etc/gitignore
+editor = /usr/bin/vim
+attributesfile = ~/.dotfiles/etc/gitattributes
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  ui = 1
-  compactionHeuristic = 1
+diff = auto
+status = auto
+branch = auto
+ui = 1
+compactionHeuristic = 1
 [diff]
-  rename = copy
-  color = auto
-  mnemonicprefix = true
+rename = copy
+color = auto
+mnemonicprefix = true
 [diff "rspec"]
-  xfuncname = "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario)[ \t].*)$"
+xfuncname = "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario)[ \t].*)$"
 [log]
-  date = local
-  graph = true
+date = local
+graph = true
 [apply]
-  whitespace = strip
+whitespace = strip
 [pager]
-  color = true
+color = true
 [status]
-  color = auto
+color = auto
 [merge]
-  tool = chdiff
-  summary = true
+tool = vscode
+[mergetool "vscode"]
+cmd = code --wait $MERGED
 [push]
-  default = upstream
+default = upstream
 [alias]
-  st = "status -sb"
-  ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-[github]
-  user = tisba
-[tig]
-  line-graphics = utf-8
-  tab-size = 4
-[tig "bind"]
-  status = @ !git checkout %(file)
-  generic = + !git commit --amend
-  refs = "3" !git rebase -i master
-  diff = Up move-up
-  diff = Down move-down
-  status = P !git push origin
-  stash = D !?git stash drop %(stash)
-  stash = P !git stash pop %(stash)
+st = "status -sb"
+ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [rebase]
-  stat = true
+stat = true
 [branch]
-  # https://git-scm.com/docs/git-config.html
-  autosetupmerge = true
-  autosetuprebase = local
-[filter "media"]
-  required = true
-  clean = git media clean %f
-  smudge = git media smudge %f
+autosetupmerge = true
+autosetuprebase = local
 [pull]
-	ff = only
+ff = only
 [init]
-	defaultBranch = main
+defaultBranch = main
+
+[github]
+user = tisba
+[tig]
+line-graphics = utf-8
+tab-size = 4
+[tig "bind"]
+status = @ !git checkout %(file)
+generic = + !git commit --amend
+refs = "3" !git rebase -i master
+diff = Up move-up
+diff = Down move-down
+status = P !git push origin
+stash = D !?git stash drop %(stash)
+stash = P !git stash pop %(stash)
