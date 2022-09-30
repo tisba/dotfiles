@@ -20,3 +20,6 @@ rvm cleanup all
 
 echo "=== Updating OMZ"
 "$ZSH/tools/upgrade.sh"
+
+echo "=== Updating solargraph"
+gem install solargraph
