@@ -19,6 +19,7 @@ alias be="bundle exec"
 alias rhttp="ruby -run -e httpd . -p 9090"
 alias curl_timing="curl -w \"\n\n%{http_code} -> TOTAL: %{time_total}, DNS Lookup: %{time_namelookup}, Connect: %{time_connect}, Start Transfer: %{time_starttransfer}\n\n\""
 alias cdpwd="cd \$(realpath \$(pwd))"
+alias rdiff="diff -rq --exclude=.DS_Store"
 
 # git
 alias gss="git stash show -p stash@{0}"
