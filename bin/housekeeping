@@ -2,24 +2,34 @@
 
 set -e
 
-echo "=== Homebrew Updates"
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+function step() {
+  echo -e "██████████ 🔧 ${GREEN}$1${NC}"
+}
+
+step "Homebrew Updates"
 brew upgrade
 brew upgrade --cask
 
-echo "=== Homebrew Cleanup"
+step "Homebrew Cleanup"
 brew_cache=$(brew --cache)
 # -s is for scrubbing the cache
 brew cleanup -s --verbose && rm -rf "${brew_cache:?}"/*
 
-echo "=== brew doctor"
+step "brew doctor"
 brew doctor
 
-echo "=== RVM cleanup"
+step "RVM cleanup"
 rvm get head
 rvm cleanup all
 
-echo "=== Updating OMZ"
+step "Update Rubygems"
+gem update --system
+
+step "Updating OMZ"
 "$ZSH/tools/upgrade.sh"
 
-echo "=== Updating solargraph"
+step "Updating solargraph"
 gem install solargraph
