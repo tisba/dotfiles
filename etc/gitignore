@@ -1,9 +1,10 @@
-.DS_Store
-.rake_tasks
-.cap_tasks
 ._*
-.svn
+.cap_tasks
+.DS_Store
 .hg
-.tmproj
+.rake_tasks
 .rvmrc
+.solargraph.yml
+.svn
+.tmproj
 .vscode/
