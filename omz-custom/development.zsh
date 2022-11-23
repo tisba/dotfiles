@@ -14,6 +14,8 @@ whoseport() { lsof -i "TCP:$1" | grep LISTEN }
 
 # Setup myfly if available (CTRL+r search replacement)
 command -v mcfly > /dev/null && {
+  export MCFLY_FUZZY=2
+  export MCFLY_INTERFACE_VIEW=BOTTOM
   eval "$(mcfly init zsh)"
 }
 
