@@ -31,5 +31,7 @@ gem update --system
 step "Updating OMZ"
 "$ZSH/tools/upgrade.sh"
 
-step "Updating solargraph"
-gem install solargraph
+step "Installing/Updating some gems..."
+gem install \
+  bundler \
+  solargraph
