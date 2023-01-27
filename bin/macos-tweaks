@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# shellcheck disable=SC2317
+
 echo "==================================================================="
 echo "  Currently this is just a reference and not meant to be applied   "
 echo "  automatically!                                                   "

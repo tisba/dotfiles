@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+# shellcheck disable=all
 
 # This utility is helpful when you want to paste snippets of code unindented.
 # Very handy to copy code snippets from the editor to a Slack channel, slides,

@@ -16,10 +16,6 @@ function printError() {
   echo -e "[${RED}ERROR${NC}] $1"
 }
 
-function printInfo() {
-  echo -e "[${GREEN}INFO${NC}] $1"
-}
-
 command -v pdffonts > /dev/null || {
   printError "pdffonts not found. Please install e.g. via ${WHITE}brew install qpdf${NC}"
   exit 1
