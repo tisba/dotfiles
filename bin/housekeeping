@@ -6,14 +6,13 @@ GREEN='\033[0;32m'
 NC='\033[0m'
 
 function step() {
-  echo -e "██████████ 🔧 ${GREEN}$1${NC}"
+  echo -e "${GREEN}██████████${NC} 🔧 ${GREEN}$1${NC}"
 }
 
-step "Homebrew Updates"
-brew upgrade
-brew upgrade --cask
+step "brew Updates"
+brew upgrade --verbose
 
-step "Homebrew Cleanup"
+step "brew Cleanup"
 brew_cache=$(brew --cache)
 # -s is for scrubbing the cache
 brew cleanup -s --verbose && rm -rf "${brew_cache:?}"/*
