@@ -12,12 +12,17 @@ These are my personal dotfiles.
 
 ### Setup new Machine
 
-* run `git clone git@github.com:tisba/dotfiles.git ~/.dotfiles`
-* copy secrets to `~/.dotfiles/secrets`
+* run `git clone --recurse-submodules git@github.com:tisba/dotfiles.git ~/.dotfiles`
+* copy secrets files to `~/.dotfiles/secrets`
 * run `DOTFILES=$HOME/.dotfiles ~/.dotfiles/bin/bootstrap`
 * run `~/.dotfiles/bin/install-essentials`
-* look at `~/.dotfiles/bin/macos-tweaks`
 
 ### Maintenance
 
 Run `housekeeping`.
+
+This will update homebrew, update RVM, update OMZ, update/install some essential global gems (e.g. bundler) and cleanup caches.
+
+### Miscellaneous
+
+* `~/.dotfiles/bin/macos-tweaks` is meant to be used as a reference and should be applied as needed.
