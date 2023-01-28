@@ -3,7 +3,7 @@
 set -e
 
 [[ -n $DOTFILES ]] || {
-    echo "[EROR] \$DOTFILES is not set"
+    echo "[ERROR] \$DOTFILES is not set"
     exit 1
 }
 

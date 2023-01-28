@@ -27,10 +27,10 @@ function checkPDF() {
   errCheck=$(pdffonts "$1" 2>&1 | tail -1)
 
   if [[ $errCheck =~ ^- ]]; then
-    echo -e "${RED}╳${WHITE} not OCRed? $1"
+    echo -e "${RED}❌${WHITE} not OCRed? $1"
     exit 1
   else
-    echo -e "${GREEN}✓${WHITE} looks OCRed! $1"
+    echo -e "${GREEN}✅${WHITE} looks OCRed! $1"
     exit 0
   fi
 }
