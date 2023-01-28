@@ -10,7 +10,7 @@ function step() {
 }
 
 step "brew Updates"
-brew upgrade --verbose
+brew upgrade
 
 step "brew Cleanup"
 brew_cache=$(brew --cache)
@@ -18,7 +18,7 @@ brew_cache=$(brew --cache)
 brew cleanup -s --verbose && rm -rf "${brew_cache:?}"/*
 
 step "brew doctor"
-brew doctor
+brew doctor --quiet
 
 step "RVM cleanup"
 rvm get head
