@@ -10,7 +10,7 @@ fi
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Networking
-whoseport() { lsof -i "TCP:$1" | grep LISTEN }
+whoseport() { sudo lsof -i "TCP:$1" | grep LISTEN }
 
 # Setup myfly if available (CTRL+r search replacement)
 command -v mcfly > /dev/null && {
