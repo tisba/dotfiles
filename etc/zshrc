@@ -79,6 +79,7 @@ plugins=(
   gem
   git
   git-extras
+  kubectl
   ruby
   tig
   zsh-autosuggestions
