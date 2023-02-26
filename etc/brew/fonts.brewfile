@@ -1,0 +1,4 @@
+tap "homebrew/cask-fonts"
+
+cask "font-fira-mono-for-powerline"
+cask "font-jetbrains-mono"
