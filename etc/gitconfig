@@ -51,7 +51,7 @@ defaultBranch = main
 [github]
 user = tisba
 [tig]
-line-graphics = utf-8
+line-graphics = auto
 tab-size = 4
 [tig "bind"]
 status = @ !git checkout %(file)
