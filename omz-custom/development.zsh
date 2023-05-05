@@ -22,3 +22,18 @@ command -v mcfly > /dev/null && {
 gisw(){
   git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout
 }
+
+# Interactive "kubectl explain" using fzf
+kexp(){
+  echo '' | \
+  fzf \
+    --query "Pod" \
+    --print-query \
+    --preview 'kubectl explain {q}' \
+    --preview-window 'up:99%' \
+    --header "Using '$(kubectl config current-context)'; start typing <type>.<fieldName>[.<fieldName>]..." \
+    --bind 'pgup:preview-up,pgdn:preview-down' \
+    --bind 'enter:become(export FOO=bar && kubectl explain {q})' \
+    --bind 'ctrl-y:execute-silent(printf {q} | pbcopy)+abort' \
+    --bind 'ctrl-r:preview(kubectl explain {q} --recursive)'
+}
