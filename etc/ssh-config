@@ -1,0 +1,47 @@
+
+# NOTE: Use https://www.ssh-audit.com to check the settings from time to time
+#       or use utils/ssh-audit-client
+
+host *
+  IdentityFile ~/.ssh/id_ed25519
+
+  Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+  KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group-exchange-sha256
+  MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com,umac-128-etm@openssh.com
+  HostKeyAlgorithms ssh-ed25519,ssh-ed25519-cert-v01@openssh.com,rsa-sha2-256,rsa-sha2-256-cert-v01@openssh.com,rsa-sha2-512,rsa-sha2-512-cert-v01@openssh.com
+
+  AddressFamily inet
+  TCPKeepAlive yes
+  ServerAliveInterval 60
+
+  Compression yes
+
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentitiesOnly yes
+  PubkeyAuthentication yes
+
+  # Security
+
+  # Mitigate CVE-0216-0777 and CVE-0216-0778
+  # See: https://www.digitalocean.com/community/tutorials/how-to-fix-openssh-s-client-bug-cve-0216-0777-and-cve-0216-0778-by-disabling-useroaming
+  UseRoaming no
+
+  Protocol 2
+  PermitLocalCommand no
+  ForwardX11 no
+  ForwardX11Trusted no
+  ForwardAgent no
+
+# Always use user 'git' for SSHing to github.com
+host github.com
+  User git
+
+# TODO: Move to work/sf specific include config
+# Include ~/Documents/src/work/ssh-config-work
+
+host *.stormforger.com !ghez.stormforger.com
+  User smith
+
+host ghez.stormforger.com
+  User ubuntu

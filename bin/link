@@ -9,6 +9,8 @@ set -e
 
 ln -nfs "$DOTFILES/etc/zshrc" ~/.zshrc
 
+ln -nfs "$DOTFILES/etc/ssh-config" ~/.ssh/config
+
 # aws
 ln -nfs "$DOTFILES/secrets/aws_credentials" ~/.aws/credentials
 
