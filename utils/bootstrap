@@ -8,14 +8,14 @@ set -e
   exit 1
 }
 
-xcode-select --install || echo "WARNING: Apple comand line tools already installed? Trying to continue…"
-
+# Install homebrew. This will also install the Xcode Command Line Tools if they are not already installed.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-# setting $ZSH makes the omz installer use it for the installation path
+# Install oh-my-zsh. By setting $ZSH the installer use it for the installation path.
 export ZSH="$DOTFILES/oh-my-zsh"
 /bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
+# Get RVM installed.
 curl -sSL https://get.rvm.io | bash -s stable
 
 mkdir -p ~/.aws/

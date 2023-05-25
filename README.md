@@ -4,7 +4,7 @@ These are my personal dotfiles.
 
 ## Motivations
 
-* document my work environment
+* document my (work) environment
 * version control configurations
 * hopefully help others to find interesting "tricks"
 
@@ -14,8 +14,8 @@ These are my personal dotfiles.
 
 * run `git clone --recurse-submodules git@github.com:tisba/dotfiles.git ~/.dotfiles`
 * copy secrets files to `~/.dotfiles/secrets`
-* run `DOTFILES=$HOME/.dotfiles ~/.dotfiles/bin/bootstrap`
-* run `~/.dotfiles/bin/install-essentials`
+* run `DOTFILES=$HOME/.dotfiles ~/.dotfiles/utils/bootstrap`
+* run `~/.dotfiles/utils/install-essentials`
 
 ### Maintenance
 
