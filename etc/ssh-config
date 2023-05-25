@@ -17,7 +17,9 @@ host *
   Compression yes
 
   AddKeysToAgent yes
-  UseKeychain yes
+  Match exec "uname -s | grep Darwin"
+    UseKeychain yes
+
   IdentitiesOnly yes
   PubkeyAuthentication yes
 
