@@ -19,6 +19,7 @@ if ! sudo -n true 2>/dev/null; then
 fi
 
 sudo sysctl debug.lowpri_throttle_enabled=0
+echo $test
 
 echo
 echo "  Done!"
