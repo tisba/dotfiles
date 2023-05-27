@@ -4,22 +4,48 @@
 
 set -e
 
-if [[ $(sysctl -n debug.lowpri_throttle_enabled) == 0 ]]; then
-  echo
-  echo "  Time Machine backup speedup is already enabled."
-  printf "  (%s)\n" "$(sysctl debug.lowpri_throttle_enabled)"
-  echo
-  exit 0
-fi
+function checkStatus(){
+  [[ $(sysctl -n debug.lowpri_throttle_enabled) == "$1" ]] || exit 0
+}
 
-if ! sudo -n true 2>/dev/null; then
-  echo
-  echo "Might ask for sudo password to set debug.lowpri_throttle_enabled=0..."
-  echo
-fi
+function sudoInfo(){
+  if ! sudo -n true 2>/dev/null; then
+    echo
+    echo "Might ask for sudo password to change debug.lowpri_throttle_enabled..."
+    echo
+  fi
+}
 
-sudo sysctl debug.lowpri_throttle_enabled=0
+function enable(){
+  sudo sysctl debug.lowpri_throttle_enabled=0
+}
+
+function disable(){
+  sudo sysctl debug.lowpri_throttle_enabled=1
+}
+
+case $1 in
+  on)
+    sudoInfo
+    checkStatus 0
+    enable
+    ;;
+  off)
+    sudoInfo
+    checkStatus 1
+    disable
+    ;;
+  status)
+    sysctl debug.lowpri_throttle_enabled
+    ;;
+  *)
+    echo
+    echo "  Usage: $0 [on|off|status]"
+    echo
+    exit 1
+    ;;
+esac
 
 echo
-echo "  Done!"
+echo "Done!"
 echo
