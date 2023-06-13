@@ -41,8 +41,6 @@ brew "pngquant"
 brew "qpdf"
 brew "youtube-dl"
 cask "aerial"
-# cask "homebrew/cask-drivers/logitech-camera-settings"
-# cask "homebrew/cask-drivers/logitech-firmwareupdatetool"
 
 # === Quicklook Tools
 cask "qlcolorcode"
