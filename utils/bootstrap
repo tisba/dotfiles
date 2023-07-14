@@ -10,6 +10,7 @@ set -e
 
 # Install homebrew. This will also install the Xcode Command Line Tools if they are not already installed.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew analytics off
 
 # Install oh-my-zsh. By setting $ZSH the installer use it for the installation path.
 export ZSH="$DOTFILES/oh-my-zsh"
