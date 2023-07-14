@@ -4,3 +4,5 @@ set -e
 
 brew bundle --no-lock --file="$DOTFILES/etc/brew/fonts.brewfile"
 brew bundle --no-lock --file="$DOTFILES/etc/brew/essentials.brewfile"
+
+go install github.com/joho/godotenv/cmd/godotenv@latest
