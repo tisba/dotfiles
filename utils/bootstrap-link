@@ -3,8 +3,8 @@
 set -e
 
 [[ -n $DOTFILES ]] || {
-    echo "[ERROR] \$DOTFILES is not set"
-    exit 1
+  echo "[ERROR] \$DOTFILES is not set"
+  exit 1
 }
 
 ln -nfs "$DOTFILES/etc/zshrc" ~/.zshrc
