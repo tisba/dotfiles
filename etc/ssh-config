@@ -1,3 +1,6 @@
+# Include OrbStack SSH config if orb is installed
+Match exec "command -v orb > /dev/null"
+  Include ~/.orbstack/ssh/config
 
 # NOTE: Use https://www.ssh-audit.com to check the settings from time to time
 #       or use utils/ssh-audit-client
