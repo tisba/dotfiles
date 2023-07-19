@@ -27,7 +27,7 @@ gisw(){
 }
 
 # Setup pyenv, if installed
-command -v pyenv >/dev/null && {
+command -v pyenv > /dev/null && {
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="$PYENV_ROOT/bin:$PATH"
 
