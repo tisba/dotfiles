@@ -26,6 +26,14 @@ gisw(){
   git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout
 }
 
+# Setup pyenv, if installed
+command -v pyenv >/dev/null && {
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+
+  eval "$(pyenv init -)"
+}
+
 # Interactive "kubectl explain" using fzf
 kexp(){
   echo '' | \
