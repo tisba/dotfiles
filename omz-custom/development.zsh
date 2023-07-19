@@ -6,6 +6,9 @@ if [ -e "/Applications/Visual Studio Code.app" ]; then
   export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 fi
 
+export PATH="$HOME/.local/bin":$PATH
+export PATH="$HOME/.docker/bin":$PATH
+
 # Erlang
 export ERL_AFLAGS="-kernel shell_history enabled"
 
