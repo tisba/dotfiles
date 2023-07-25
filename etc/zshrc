@@ -68,6 +68,9 @@ HIST_STAMPS="yyyy-mm-dd"
 # Would you like to use another custom folder than $ZSH/custom?
 export ZSH_CUSTOM="$DOTFILES/omz-custom"
 
+# make ZSH use the cache directory for zcompdump files
+export ZSH_COMPDUMP="$ZSH/cache/.zcompdump-$HOST"
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
