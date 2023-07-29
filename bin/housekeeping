@@ -20,10 +20,6 @@ brew cleanup -s --verbose && rm -rf "${brew_cache:?}"/*
 step "brew doctor"
 brew doctor --quiet
 
-step "RVM cleanup"
-rvm get head
-rvm cleanup all
-
 step "Update Rubygems"
 gem update --system
 
