@@ -57,6 +57,7 @@ echo "Menu Bar: Disable menu bar transparency"
 
 echo "Safari: Enable debug menus"
 defaults write com.apple.Safari IncludeDebugMenu -bool true
+defaults write com.apple.Safari NSUserKeyEquivalents -dict-add "Quit Safari" '@^q'
 defaults write com.apple.addressbook ABShowDebugMenu -bool true
 defaults write com.apple.DiskUtility DUDebugMenuEnabled -bool true
 defaults write com.apple.DiskUtility advanced-image-options -bool true
