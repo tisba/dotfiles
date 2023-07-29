@@ -7,6 +7,8 @@ set -e
   exit 1
 }
 
+ln -nfs "$DOTFILES/etc/ruby-version" ~/.ruby-version
+
 ln -nfs "$DOTFILES/etc/zshrc" ~/.zshrc
 
 ln -nfs "$DOTFILES/etc/ssh-config" ~/.ssh/config
