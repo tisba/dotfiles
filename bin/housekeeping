@@ -26,6 +26,9 @@ gem update --system
 step "Updating OMZ"
 "$ZSH/tools/upgrade.sh"
 
+step "Updating ruby-install available Rubies"
+ruby-install --update
+
 step "Installing/Updating some gems..."
 gem install \
   bundler \
