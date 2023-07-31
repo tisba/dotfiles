@@ -83,7 +83,6 @@ plugins=(
   git
   git-extras
   kubectl
-  pyenv
   rust
   tig
   zsh-autosuggestions
