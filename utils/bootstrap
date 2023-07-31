@@ -21,6 +21,8 @@ export ZSH="$DOTFILES/oh-my-zsh"
 # in $DOTFILES/etc/ruby-version.
 brew install chruby ruby-install openssl@1.1
 ruby-install ruby "$(cat "$DOTFILES/etc/ruby-version")" -- --disable-install-rdoc --with-openssl-dir="$(brew --prefix openssl@1.1)"
+gem update --system
+gem install bundler
 
 mkdir -p ~/.aws/
 
