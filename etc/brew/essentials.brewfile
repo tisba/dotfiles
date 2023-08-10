@@ -31,6 +31,8 @@ brew "syntaqx/tap/serve"
 brew "tig"
 brew "watch"
 cask "visual-studio-code"
+brew "kubernetes-cli
+brew "helm"
 
 # === Basics
 tap "cantino/mcfly"
