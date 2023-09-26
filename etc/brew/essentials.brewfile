@@ -41,7 +41,7 @@ brew "fzf"
 brew "pngcrush"
 brew "pngquant"
 brew "qpdf"
-brew "youtube-dl"
+brew "yt-dlp"
 cask "aerial"
 
 # === Quicklook Tools
