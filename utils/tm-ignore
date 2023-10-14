@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -e
+
+# FIXME: This will require "Full Disk Access privileges" :(
+# TODO: Add tmutil isexcluded checks for each path
+# NOTES:
+# * to read excluded paths, shown in the UI, you can use:
+#   defaults read /Library/Preferences/com.apple.TimeMachine SkipPaths
+#   or defaults read /Library/Preferences/com.apple.TimeMachine SkipPaths | plutil -convert json -o - - | jq .
+# * there is also an attribute that excludes items from TimeMachine, you can use this
+#   to find them:
+#   sudo mdfind "com_apple_backup_excludeItem = 'com.apple.backupd'"
+sudo tmutil addexclusion -p "$(brew --prefix)"
+
+# Ruby
+sudo tmutil addexclusion -p ~/.rubies
+sudo tmutil addexclusion -p ~/.gem
+
+# Development
+sudo tmutil addexclusion -p ~basti/.orbstack
+sudo tmutil addexclusion -p ~basti/.tart
+sudo tmutil addexclusion -p ~basti/Library/Containers/com.docker.docker
+
+# Gaming/Steam
+sudo tmutil addexclusion -p "~basti/Library/Application Support/Steam"

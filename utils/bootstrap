@@ -29,23 +29,7 @@ mkdir -p ~/.aws/
 # misc
 touch ~/.hushlogin
 
-# FIXME: This will require "Full Disk Access privileges" :(
-# TODO: Add tmutil isexcluded checks for each path
-# NOTES:
-# * to read excluded paths, shown in the UI, you can use:
-#   defaults read /Library/Preferences/com.apple.TimeMachine SkipPaths
-#   or defaults read /Library/Preferences/com.apple.TimeMachine SkipPaths | plutil -convert json -o - - | jq .
-# * there is also an attribute that excludes items from TimeMachine, you can use this
-#   to find them:
-#   sudo mdfind "com_apple_backup_excludeItem = 'com.apple.backupd'"
-sudo tmutil addexclusion -p "$(brew --prefix)"
-
-sudo tmutil addexclusion -p ~/.rvm
-sudo tmutil addexclusion -p ~/.rubies
-sudo tmutil addexclusion -p ~/.gem
-
-sudo tmutil addexclusion -p ~/.orbstack
-sudo tmutil addexclusion -p ~/.tart
-sudo tmutil addexclusion -p ~/Library/Containers/com.docker.docker
-
+"$DOTFILES"/utils/tm-ignore
 "$DOTFILES"/utils/bootstrap-link
+
+ln -s "$(brew --prefix)/bin/yt-dlp" "$(brew --prefix)/bin/youtube-dl"
