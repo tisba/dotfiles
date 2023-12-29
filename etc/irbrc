@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
-require "irb/completion"
-require "readline"
-
-IRB.conf[:SAVE_HISTORY] = 100
-IRB.conf[:HISTORY_FILE] = "#{ENV["HOME"]}/.irb-save-history"
-
-Readline.basic_word_break_characters = " \t\n\\><=;|&" unless defined?(JRUBY_VERSION)
+# tune colors for IRB completion dialog
+Reline::Face.config(:completion_dialog) do |conf|
+  conf.define :default, foreground: :white, background: :black
+  conf.define :enhanced, foreground: :black, background: :white
+  conf.define :scrollbar, foreground: :white, background: :black
+end
