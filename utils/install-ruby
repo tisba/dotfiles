@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -e
+
+[[ -n $DOTFILES ]] || {
+  printf "[ERROR] \$DOTFILES is not set!\n\n"
+  printf "Example: DOTFILES=\$HOME/.dotfiles %s\n\n" "$0"
+  exit 1
+}
+
+ruby_version="$(cat "$DOTFILES/etc/ruby-version")"
+
+if source "$(brew --prefix chruby)/share/chruby/chruby.sh"; then
+  if chruby | grep -q "$ruby_version"; then
+    read -r -n1 -p "🤔 Looks like Ruby ${ruby_version} is already installed. Reinstall? [Yy] "
+    [[ ! $REPLY =~ ^[Yy]$ ]] && printf "\nkthxbye 👋\n" && exit
+    echo
+  fi
+fi
+
+brew install chruby ruby-install openssl@3
+ruby-install \
+  ruby "$ruby_version" \
+  --jobs $(sysctl -n hw.ncpu) \
+  --cleanup \
+  --update \
+  -- \
+  --disable-install-rdoc --with-openssl-dir="$(brew --prefix openssl@3)"
+gem update --system
+gem install bundler

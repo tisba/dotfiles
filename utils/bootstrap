@@ -17,12 +17,7 @@ export ZSH="$DOTFILES/oh-my-zsh"
 /bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Ruby \o/
-# Install chruby, ruby-install and install ruby version defined
-# in $DOTFILES/etc/ruby-version.
-brew install chruby ruby-install openssl@3
-ruby-install ruby "$(cat "$DOTFILES/etc/ruby-version")" -- --disable-install-rdoc --with-openssl-dir="$(brew --prefix openssl@3)"
-gem update --system
-gem install bundler
+$DOTFILES/utils/install-ruby
 
 mkdir -p ~/.aws/
 
