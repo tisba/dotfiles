@@ -17,7 +17,7 @@ export ZSH="$DOTFILES/oh-my-zsh"
 /bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Ruby \o/
-$DOTFILES/utils/install-ruby
+"$DOTFILES"/utils/install-ruby
 
 mkdir -p ~/.aws/
 

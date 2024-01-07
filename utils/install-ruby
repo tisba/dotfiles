@@ -10,6 +10,7 @@ set -e
 
 ruby_version="$(cat "$DOTFILES/etc/ruby-version")"
 
+# shellcheck source=/dev/null
 if source "$(brew --prefix chruby)/share/chruby/chruby.sh"; then
   if chruby | grep -q "$ruby_version"; then
     read -r -n1 -p "🤔 Looks like Ruby ${ruby_version} is already installed. Reinstall? [Yy] "
@@ -21,7 +22,7 @@ fi
 brew install chruby ruby-install openssl@3
 ruby-install \
   ruby "$ruby_version" \
-  --jobs $(sysctl -n hw.ncpu) \
+  --jobs "$(sysctl -n hw.ncpu)" \
   --cleanup \
   --update \
   -- \
