@@ -19,7 +19,7 @@ if source "$(brew --prefix chruby)/share/chruby/chruby.sh"; then
   fi
 fi
 
-brew install chruby ruby-install openssl@3
+brew install chruby ruby-install rust openssl@3
 ruby-install \
   ruby "$ruby_version" \
   --jobs "$(sysctl -n hw.ncpu)" \
