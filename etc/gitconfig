@@ -43,6 +43,7 @@ stat = true
 [branch]
 autosetupmerge = true
 autosetuprebase = local
+sort = -committerdate
 [pull]
 ff = only
 [init]
