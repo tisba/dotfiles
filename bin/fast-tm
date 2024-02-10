@@ -5,7 +5,7 @@
 set -e
 
 function checkStatus(){
-  [[ $(sysctl -n debug.lowpri_throttle_enabled) == "$1" ]] || exit 0
+  ! [[ $(sysctl -n debug.lowpri_throttle_enabled) == "$1" ]] || exit 0
 }
 
 function sudoInfo(){
