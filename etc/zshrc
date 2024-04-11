@@ -1,3 +1,7 @@
+# FIXME: Workaround for broken git info display
+#        See https://github.com/ohmyzsh/ohmyzsh/issues/12328
+zstyle ':omz:alpha:lib:git' async-prompt no
+
 export DOTFILES="$HOME/.dotfiles"
 
 # If you come from bash you might have to change your $PATH.
