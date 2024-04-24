@@ -21,7 +21,7 @@ These are my personal dotfiles.
 
 Run `housekeeping`.
 
-This will update homebrew, update RVM, update OMZ, update/install some essential global gems (e.g. bundler) and cleanup caches.
+This will update homebrew, ruby-install, OMZ, some essential global gems (e.g. bundler) and cleanup caches.
 
 ### Miscellaneous
 

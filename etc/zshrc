@@ -132,7 +132,6 @@ fi
 # disable shared history
 unsetopt share_history
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
+# Setup chruby
 source $(brew --prefix chruby)/share/chruby/chruby.sh
 source $(brew --prefix chruby)/share/chruby/auto.sh
