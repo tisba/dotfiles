@@ -10,11 +10,12 @@ set -e
 
 # Install homebrew. This will also install the Xcode Command Line Tools if they are not already installed.
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew analytics off
 
 # Install oh-my-zsh. By setting $ZSH the installer use it for the installation path.
 export ZSH="$DOTFILES/oh-my-zsh"
-/bin/bash -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 
 # Ruby \o/
 "$DOTFILES"/utils/install-ruby
@@ -24,7 +25,6 @@ mkdir -p ~/.aws/
 # misc
 touch ~/.hushlogin
 
-"$DOTFILES"/utils/tm-ignore
 "$DOTFILES"/utils/bootstrap-link
 
 ln -s "$(brew --prefix)/bin/yt-dlp" "$(brew --prefix)/bin/youtube-dl"

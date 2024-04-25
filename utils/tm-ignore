@@ -17,10 +17,13 @@ sudo tmutil addexclusion -p "$(brew --prefix)"
 sudo tmutil addexclusion -p ~/.rubies
 sudo tmutil addexclusion -p ~/.gem
 
+# Python
+sudo tmutil addexclusion -p ~/.pyenv
+
 # Development
-sudo tmutil addexclusion -p ~basti/.orbstack
-sudo tmutil addexclusion -p ~basti/.tart
-sudo tmutil addexclusion -p ~basti/Library/Containers/com.docker.docker
+sudo tmutil addexclusion -p ~/.orbstack
+sudo tmutil addexclusion -p ~/.tart
+sudo tmutil addexclusion -p ~/Library/Containers/com.docker.docker
 
 # Gaming/Steam
-sudo tmutil addexclusion -p "~basti/Library/Application Support/Steam"
+sudo tmutil addexclusion -p "~/Library/Application Support/Steam"
