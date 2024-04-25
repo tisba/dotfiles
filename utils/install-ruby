@@ -14,16 +14,15 @@ else
   ruby_version="$(cat "$DOTFILES/etc/ruby-version")"
 fi
 
+brew install --quiet chruby ruby-install rust openssl@3
+
 # shellcheck source=/dev/null
-if source "$(brew --prefix chruby)/share/chruby/chruby.sh"; then
-  if chruby | grep -q "$ruby_version"; then
-    read -r -n1 -p "🤔 Looks like Ruby ${ruby_version} is already installed. Reinstall? [Yy] "
-    [[ ! $REPLY =~ ^[Yy]$ ]] && printf "\nkthxbye 👋\n" && exit
-    echo
-  fi
+if chruby | grep -q "$ruby_version"; then
+  read -r -n1 -p "🤔 Looks like Ruby ${ruby_version} is already installed. Reinstall? [Yy] "
+  [[ ! $REPLY =~ ^[Yy]$ ]] && printf "\nkthxbye 👋\n" && exit
+  echo
 fi
 
-brew install chruby ruby-install rust openssl@3
 ruby-install \
   ruby "$ruby_version" \
   --jobs "$(sysctl -n hw.ncpu)" \
@@ -31,5 +30,9 @@ ruby-install \
   --update \
   -- \
   --disable-install-rdoc --with-openssl-dir="$(brew --prefix openssl@3)"
+
+source "$(brew --prefix chruby)/share/chruby/chruby.sh"
+chruby "$ruby_version"
+
 gem update --system
 gem install bundler
