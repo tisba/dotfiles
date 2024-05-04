@@ -31,6 +31,7 @@ ruby-install \
   -- \
   --disable-install-rdoc --with-openssl-dir="$(brew --prefix openssl@3)"
 
+# shellcheck disable=SC1091
 source "$(brew --prefix chruby)/share/chruby/chruby.sh"
 chruby "$ruby_version"
 
