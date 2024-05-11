@@ -16,6 +16,9 @@ fi
 
 brew install --quiet chruby ruby-install rust openssl@3
 
+# shellcheck disable=SC1091
+source "$(brew --prefix chruby)/share/chruby/chruby.sh"
+
 # shellcheck source=/dev/null
 if chruby | grep -q "$ruby_version"; then
   read -r -n1 -p "🤔 Looks like Ruby ${ruby_version} is already installed. Reinstall? [Yy] "
@@ -31,8 +34,6 @@ ruby-install \
   -- \
   --disable-install-rdoc --with-openssl-dir="$(brew --prefix openssl@3)"
 
-# shellcheck disable=SC1091
-source "$(brew --prefix chruby)/share/chruby/chruby.sh"
 chruby "$ruby_version"
 
 gem update --system
