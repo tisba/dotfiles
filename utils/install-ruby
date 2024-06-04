@@ -34,6 +34,10 @@ ruby-install \
   -- \
   --disable-install-rdoc --with-openssl-dir="$(brew --prefix openssl@3)"
 
+# We need to source chruby again, to see the newly installed Ruby
+# shellcheck disable=SC1091
+source "$(brew --prefix chruby)/share/chruby/chruby.sh"
+
 chruby "$ruby_version"
 
 gem update --system
