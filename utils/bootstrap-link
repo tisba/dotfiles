@@ -22,3 +22,8 @@ ln -nfs "$DOTFILES/etc/gemrc" ~/.gemrc
 
 # git
 ln -nfs "$DOTFILES/etc/gitconfig" ~/.gitconfig
+
+# other
+
+mkdir -p ~/.yt-dlp
+ln -nfs "$DOTFILES/etc/yt-dlp.conf" ~/.yt-dlp/config
