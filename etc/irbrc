@@ -6,3 +6,18 @@ Reline::Face.config(:completion_dialog) do |conf|
   conf.define :enhanced, foreground: :black, background: :white
   conf.define :scrollbar, foreground: :white, background: :black
 end
+
+# I'm a buts debugger!
+# Inspired by https://justin.searls.co/posts/pro-tip-make-your-debug-print-statements-pop
+module Kernel
+  def buts(*objects)
+    yellow_background_black_text = "\e[43;30m"
+    reset = "\e[0m"
+
+    if objects.length > 1
+      puts "#{yellow_background_black_text}⇩⇩⇩⇩⇩⇩#{reset}", *objects, "#{yellow_background_black_text}⇧⇧⇧⇧⇧⇧#{reset}"
+    else
+      puts "#{yellow_background_black_text}⇨⇨⇨⇨⇨⇨#{reset} #{objects[0].pretty_inspect}#{reset}"
+    end
+  end
+end unless Kernel.respond_to?(:buts)
