@@ -4,8 +4,22 @@
 
 set -e
 
+CURRENT_STATUS="$(sysctl -n debug.lowpri_throttle_enabled)"
+
 function checkStatus(){
-  ! [[ $(sysctl -n debug.lowpri_throttle_enabled) == "$1" ]] || exit 0
+  [[ $CURRENT_STATUS == "$1" ]] && {
+    echo "sysctl -n debug.lowpri_throttle_enabled => $1"
+    echo
+    echo "Already $( [[ $1 == 0 ]] && echo "enabled!" || echo "disabled!" )"
+    echo
+    exit 0
+  } || true
+}
+
+function printStatus() {
+  echo
+  echo "Current status: $( [[ $CURRENT_STATUS == 0 ]] && echo "enabled" || echo "disabled" )"
+  echo
 }
 
 function sudoInfo(){
@@ -27,16 +41,16 @@ function disable(){
 case $1 in
   on)
     sudoInfo
-    checkStatus 0
+    checkStatus "0"
     enable
     ;;
   off)
     sudoInfo
-    checkStatus 1
+    checkStatus "1"
     disable
     ;;
   status)
-    sysctl debug.lowpri_throttle_enabled
+    printStatus
     ;;
   *)
     echo
@@ -45,7 +59,3 @@ case $1 in
     exit 1
     ;;
 esac
-
-echo
-echo "Done!"
-echo
