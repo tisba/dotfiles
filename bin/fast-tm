@@ -7,13 +7,16 @@ set -e
 CURRENT_STATUS="$(sysctl -n debug.lowpri_throttle_enabled)"
 
 function checkStatus(){
-  [[ $CURRENT_STATUS == "$1" ]] && {
+  if [[ $CURRENT_STATUS == "$1" ]]
+  then
     echo "sysctl -n debug.lowpri_throttle_enabled => $1"
     echo
     echo "Already $( [[ $1 == 0 ]] && echo "enabled!" || echo "disabled!" )"
     echo
     exit 0
-  } || true
+  else
+    true
+  fi
 }
 
 function printStatus() {
@@ -40,13 +43,13 @@ function disable(){
 
 case $1 in
   on)
-    sudoInfo
     checkStatus "0"
+    sudoInfo
     enable
     ;;
   off)
-    sudoInfo
     checkStatus "1"
+    sudoInfo
     disable
     ;;
   status)
