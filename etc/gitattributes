@@ -4,3 +4,4 @@
 Gemfile diff=ruby
 Capfile diff=ruby
 *_spec.rb diff=rspec
+*.npy binary diff=npy
