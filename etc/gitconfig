@@ -38,6 +38,8 @@ cmd = code --wait $MERGED
 [push]
 default = upstream
 [alias]
+# stash all files, including untracked
+stash-all = stash save --include-untracked
 st = "status -sb"
 ls = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 rb = for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
@@ -70,3 +72,9 @@ stash = P !git stash pop %(stash)
 
 [includeIf "gitdir:~/Documents/stormforge/src/**/*"]
 path = ~/Documents/stormforge/src/gitconfig-stormforge
+
+[transfer]
+fsckobjects = true
+# To combat repository corruption!
+# Note: this global option applies during receive and transmit
+# https://git-scm.com/docs/git-config#Documentation/git-config.txt-fetchfsckObjects
