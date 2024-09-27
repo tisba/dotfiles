@@ -1,7 +1,11 @@
-*.rb diff=ruby
-*.rake diff=ruby
-*.gemspec diff=ruby
-Gemfile diff=ruby
-Capfile diff=ruby
 *_spec.rb diff=rspec
+*.gemspec diff=ruby
+*.rake diff=ruby
+*.rb diff=ruby
+*.thor diff=ruby
+Capfile diff=ruby
+Gemfile diff=ruby
+
 *.npy binary diff=npy
+*.tar.gz binary diff=targz
+*.zip binary diff=zip

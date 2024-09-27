@@ -15,13 +15,17 @@ branch = auto
 ui = 1
 compactionHeuristic = 1
 [diff]
-rename = copy
+renames = copy
 color = auto
 mnemonicprefix = true
 [diff "rspec"]
 xfuncname = "^[ \t]*((RSpec|describe|context|it|before|after|around|feature|scenario)[ \t].*)$"
 [diff "npy"]
 textconv = "python -c 'import numpy as np; import sys; np.savetxt(sys.stdout, np.load(sys.argv[1]), fmt=\"%s\", delimiter=\"\t\")'"
+[diff "zip"]
+textconv = "unzip -lv"
+[diff "targz"]
+textconv = "tar --list --verbose --file"
 [log]
 date = local
 graph = true
