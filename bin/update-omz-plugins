@@ -4,10 +4,4 @@ set -e
 
 # Custom Plugin update custom function
 echo "Updating custom plugins and themes..."
-cd "$ZSH_CUSTOM"
-for plugin in plugins/*/ themes/*/; do
-  if [ -d "$plugin/.git" ]; then
-    echo "${plugin%/}"
-    git -C "$plugin" pull
-  fi
-done
+git submodule update --recursive --remote --merge
