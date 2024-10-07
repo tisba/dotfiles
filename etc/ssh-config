@@ -28,10 +28,6 @@ host *
 
   # Security
 
-  # Mitigate CVE-0216-0777 and CVE-0216-0778
-  # See: https://www.digitalocean.com/community/tutorials/how-to-fix-openssh-s-client-bug-cve-0216-0777-and-cve-0216-0778-by-disabling-useroaming
-  UseRoaming no
-
   Protocol 2
   PermitLocalCommand no
   ForwardX11 no
