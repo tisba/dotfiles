@@ -1,6 +1,6 @@
-# FIXME: Workaround for broken git info display
-#        See https://github.com/ohmyzsh/ohmyzsh/issues/12328
-zstyle ':omz:alpha:lib:git' async-prompt no
+# NOTE: Workaround for broken async git promt display.
+#       See https://github.com/ohmyzsh/ohmyzsh/issues/12328
+zstyle ':omz:alpha:lib:git' async-prompt force
 
 export DOTFILES="$HOME/.dotfiles"
 
@@ -113,12 +113,7 @@ else
   export EDITOR='subl -w'
 fi
 
-# Prefixing prompt with profile when $AWS_VAULT is set
-# TODO: How to move that into a better place? Like dev-related
-if [[ -n $AWS_VAULT ]]; then
-  export PROMPT="[AWS@${AWS_VAULT}] ${PROMPT}"
-fi
-
+# Load homebrew provided zsh completions
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"

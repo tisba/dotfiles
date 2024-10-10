@@ -6,11 +6,10 @@ if [ -e "/Applications/Visual Studio Code.app" ]; then
   export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 fi
 
-export PATH="$HOME/.local/bin":$PATH
-export PATH="$HOME/.docker/bin":$PATH
-
-# Erlang
-export ERL_AFLAGS="-kernel shell_history enabled"
+# Prefixing prompt with profile when $AWS_VAULT is set
+if [[ -n $AWS_VAULT ]]; then
+  export PROMPT="[AWS@${AWS_VAULT}] ${PROMPT}"
+fi
 
 # Networking
 whoseport() { sudo lsof -i "TCP:$1" | grep LISTEN }
@@ -22,9 +21,13 @@ command -v mcfly > /dev/null && {
   eval "$(mcfly init zsh)"
 }
 
-gisw(){
-  git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git checkout' | xargs git checkout
+# gpick shows a list of branches, sorted by last commit date, and checks out the selected branch
+gpick(){
+  git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git switch' | xargs git switch
 }
+
+# Erlang
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 # Setup pyenv, if installed
 command -v pyenv > /dev/null && {
