@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# NOTE
-#
-# Please check me after any changes with shellcheck (brew install shellcheck)!
-
 set -e
 
 # COLORS!
