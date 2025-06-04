@@ -29,8 +29,12 @@ step "Updating OMZ"
 step "Updating ruby-install available Rubies"
 ruby-install --update
 
+step "Updating rubygems and bundler"
+gem update --system
+gem install bundler
+
 step "Installing/Updating some gems..."
 gem install \
-  bundler \
+  gem-clone \
   solargraph \
   webrick
