@@ -37,6 +37,9 @@ command -v pyenv > /dev/null && {
   eval "$(pyenv init -)"
 }
 
+# Path: Rust/cargo binaries in PATH
+export PATH="$HOME/.cargo/bin":$PATH
+
 # Interactive "kubectl explain" using fzf
 kexp(){
   echo '' | \
