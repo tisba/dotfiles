@@ -28,7 +28,6 @@ fi
 
 ruby-install \
   ruby "$ruby_version" \
-  --jobs "$(sysctl -n hw.ncpu)" \
   --cleanup \
   --update \
   -- \
