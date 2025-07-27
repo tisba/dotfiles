@@ -74,9 +74,6 @@ status = P !git push origin
 stash = D !?git stash drop %(stash)
 stash = P !git stash pop %(stash)
 
-[includeIf "gitdir:~/Documents/stormforge/src/**/*"]
-path = ~/Documents/stormforge/src/gitconfig-stormforge
-
 [transfer]
 fsckobjects = true
 # To combat repository corruption!
