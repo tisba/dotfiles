@@ -58,9 +58,6 @@ ff = only
 [init]
 defaultBranch = main
 
-[github]
-user = tisba
-
 [tig]
 line-graphics = auto
 tab-size = 4
