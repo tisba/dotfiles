@@ -54,11 +54,6 @@ function checkPreconditions() {
     printError "qpdf not found. Please install e.g. via ${WHITE}brew install qpdf${NC}"
     exit 1
   }
-
-  [ -n "$STORMFORGER_PDF_PASSWORD" ] || {
-    printError "STORMFORGER_PDF_PASSWORD not set!"
-    exit 1
-  }
 }
 
 function checkEncryption() {

@@ -40,12 +40,3 @@ host *
 # Always use user 'git' for SSHing to github.com
 host github.com
   User git
-
-# TODO: Move to work/sf specific include config
-# Include ~/Documents/src/work/ssh-config-work
-
-host *.stormforger.com !ghez.stormforger.com
-  User smith
-
-host ghez.stormforger.com
-  User ubuntu

@@ -1,8 +1,6 @@
 # === My Own Stuff
 tap "tisba/taps"
 brew "tisba/taps/fritz-tls"
-tap "stormforger/forge"
-brew "stormforger/forge/forge"
 
 # === Development
 brew "go"
