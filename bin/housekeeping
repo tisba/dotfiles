@@ -12,6 +12,9 @@ function step() {
 step "brew Updates"
 brew upgrade
 
+step "Rust Updates"
+rustup update
+
 step "brew Cleanup"
 brew_cache=$(brew --cache)
 # -s is for scrubbing the cache
