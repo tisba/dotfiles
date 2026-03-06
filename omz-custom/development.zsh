@@ -6,6 +6,18 @@ if [ -e "/Applications/Visual Studio Code.app" ]; then
   export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin":$PATH
 fi
 
+# Setup pyenv, if installed
+command -v pyenv > /dev/null && {
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+
+  eval "$(pyenv init -)"
+}
+
+# Path: Rust/cargo binaries in PATH
+export PATH="$HOME/.cargo/bin":$PATH
+export PATH="$(brew --prefix rustup)/bin:$PATH"
+
 # Prefixing prompt with profile when $AWS_VAULT is set
 if [[ -n $AWS_VAULT ]]; then
   export PROMPT="[AWS@${AWS_VAULT}] ${PROMPT}"
@@ -25,20 +37,6 @@ command -v mcfly > /dev/null && {
 gpick(){
   git branch --no-color --sort=-committerdate --format='%(refname:short)' | fzf --header 'git switch' | xargs git switch
 }
-
-# Erlang
-export ERL_AFLAGS="-kernel shell_history enabled"
-
-# Setup pyenv, if installed
-command -v pyenv > /dev/null && {
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-
-  eval "$(pyenv init -)"
-}
-
-# Path: Rust/cargo binaries in PATH
-export PATH="$HOME/.cargo/bin":$PATH
 
 # Interactive "kubectl explain" using fzf
 kexp(){

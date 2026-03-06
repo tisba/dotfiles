@@ -7,7 +7,7 @@ brew "go"
 tap "goreleaser/tap"
 brew "goreleaser/tap/goreleaser"
 
-brew "rust"
+brew "rustup"
 brew "node"
 
 brew "awscli"
