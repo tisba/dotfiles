@@ -10,7 +10,9 @@ function step() {
 }
 
 step "brew Updates"
-brew upgrade
+# FIXME: The HOMEBREW_NO_ASKcan be removed, when https://github.com/Homebrew/brew/pull/22601
+#        landed in homebrew.
+HOMEBREW_NO_ASK=yes brew upgrade
 
 step "Rust Updates"
 rustup update
