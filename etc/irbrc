@@ -21,3 +21,5 @@ module Kernel
     end
   end
 end unless Kernel.respond_to?(:buts)
+
+IRB.conf[:SHOW_BANNER] = false
