@@ -13,6 +13,7 @@ These are my personal dotfiles.
 ### Setup new Machine
 
 * Install homebrew `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"` (we need Xcode Command Line Tools to `git clone`)
+* generate new SSH key (e.g. `ssh-keygen -t ed25519 -C "comment"`) and make sure it's able to access the repo
 * run `git clone --recurse-submodules git@github.com:tisba/dotfiles.git ~/.dotfiles`
 * copy secrets files to `~/.dotfiles/secrets`
 * run `DOTFILES=$HOME/.dotfiles ~/.dotfiles/utils/bootstrap`
