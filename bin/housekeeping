@@ -12,8 +12,10 @@ function step() {
 step "brew Updates"
 brew upgrade --no-ask
 
-step "Rust Updates"
-rustup update
+command -v rustup > /dev/null && {
+  step "Rust Updates"
+  rustup update
+}
 
 step "brew Cleanup"
 brew_cache=$(brew --cache)
