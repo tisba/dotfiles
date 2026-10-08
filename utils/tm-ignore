@@ -13,14 +13,11 @@ set -e
 #   sudo mdfind "com_apple_backup_excludeItem = 'com.apple.backupd'"
 sudo tmutil addexclusion -p "$(brew --prefix)"
 
-# Ruby
+# Development
 sudo tmutil addexclusion -p ~/.rubies
 sudo tmutil addexclusion -p ~/.gem
-
-# Python
 sudo tmutil addexclusion -p ~/.pyenv
-
-# Development
+sudo tmutil addexclusion -p ~/.rustup
 sudo tmutil addexclusion -p ~/.orbstack
 
 # Gaming/Steam
